@@ -1,0 +1,42 @@
+<!-- <p>This is the partial for view 1.</p> -->
+<div class="librarydiv">
+	<header>Library</header>
+	<div class="libraryapp" ng-init="view1.addnewbookform=false; view1.editabook=true;">
+		<h1>List of Books</h1>
+		<ul ng-if="view1.booklist.length>0" class="booklist">
+			<li ng-repeat="booklist in view1.booklist track by $index" ng-init="view1.viewmore{{$index}}=false; booklist['edit']=true">
+				<p>
+					<span>Name: {{booklist.title}}</span>
+				</p>
+				<span ng-click="view1.viewmorefun(booklist,$index)" class="addbook">+ View More</span>
+				<span class="addbook" ng-if="booklist.showedit && booklist.edit" ng-click="view1.editabookfun(booklist,$index)">Edit</span>
+				<span class="addbook" ng-if="booklist.showedit==true && booklist.edit==false" ng-click="view1.saveabook(booklist)">Save</span>
+				<span class="addbook" ng-if="booklist.showedit" ng-click="view1.deleteabookfun(booklist)">Delete</span>
+				<p ng-show="!!view1.viewmore{{$index}}">
+					<span>Title: <input type="text" ng-model="booklist.title" ng-disabled="booklist.edit"></span></br>
+					<span>Author: <input type="text" ng-model="booklist.author" ng-disabled="booklist.edit"></span></br>
+					<span>Publisher: <input type="text" ng-model="booklist.publisher" ng-disabled="booklist.edit"></span></br>
+					<span>Categories: <input type="text" ng-model="booklist.categories" ng-disabled="booklist.edit"></span></br>
+				</p>
+			</li>
+		</ul>
+		<p ng-if="view1.booklist.length<1" class="nobooks">No Books are available.</p>
+		<span ng-click="view1.addnewbookform=!view1.addnewbookform" class="addbook">+ Add a Book</span>
+		<span ng-click="view1.deletebooks()" class="addbook">Delete all Books</span>
+		<div ng-if="view1.addnewbookform">
+			<form ng-submit="view1.addbook(view1.addnewbookobj)">
+				Title:<br>
+				<input type="text" name="title" ng-model="view1.addnewbookobj.title"><br>
+				Categories:<br>
+				<input type="text" name="categories" ng-model="view1.addnewbookobj.categories"><br>
+				Publisher:<br>
+				<input type="text" name="title" ng-model="view1.addnewbookobj.publisher"><br>
+				Author:<br>
+				<input type="text" name="categories" ng-model="view1.addnewbookobj.author"><br>
+				URL:<br>
+				<input type="text" name="categories" ng-model="view1.addnewbookobj.url"><br>
+				<button>Add Book</button>
+			</form>
+		</div>
+	</div>
+</div>

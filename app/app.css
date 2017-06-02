@@ -1,0 +1,52 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+.librarydiv header{
+	text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-bottom: 4px solid #000;
+    background: rgba(0,0,255,0.3);
+}
+.libraryapp{
+	width: 50%;
+	margin: auto;
+}
+.libraryapp h1{
+	text-align: center;
+}
+.nobooks{
+	text-align: center;
+	color: red;
+}
+.addbook{
+	cursor: pointer;
+}
+.addbook:hover{
+	cursor: pointer;
+	color: blue;
+	text-decoration: underline;
+}
